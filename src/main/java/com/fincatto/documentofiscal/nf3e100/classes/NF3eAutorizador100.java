@@ -10,10 +10,10 @@ public enum NF3eAutorizador100 {
 
     PR {
         @Override
-        public String getNf3eStatusServico(final DFAmbiente ambiente) {
+        public String getStatusServico(final DFAmbiente ambiente) {
             return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://homologacao.nf3e.fazenda.pr.gov.br/nf3e/NF3eStatusServico" : "https://nf3e.fazenda.pr.gov.br/nf3e/NF3eStatusServico";
         }
-    
+
         @Override
         public DFUnidadeFederativa[] getUFs() {
             return new DFUnidadeFederativa[]{DFUnidadeFederativa.PR};
@@ -22,10 +22,10 @@ public enum NF3eAutorizador100 {
 
     SVRS {
         @Override
-        public String getNf3eStatusServico(final DFAmbiente ambiente) {
+        public String getStatusServico(final DFAmbiente ambiente) {
             return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://nf3e-homologacao.svrs.rs.gov.br/ws/nf3eStatusServico/nf3eStatusServico.asmx" : "https://nf3e.svrs.rs.gov.br/ws/nf3eStatusServico/nf3eStatusServico.asmx";
         }
-    
+
         @Override
         public DFUnidadeFederativa[] getUFs() {
             return new DFUnidadeFederativa[]{
@@ -44,8 +44,12 @@ public enum NF3eAutorizador100 {
                     DFUnidadeFederativa.TO};
         }
     };
-    
-    public abstract String getNf3eStatusServico(final DFAmbiente ambiente);
+
+    public abstract String getStatusServico(final DFAmbiente ambiente);
+
+    public abstract String getNf3eConsultaProtocolo(final DFAmbiente ambiente);
+
+    public abstract String getRecepcaoEvento(final DFAmbiente ambiente);
     
     public abstract DFUnidadeFederativa[] getUFs();
     

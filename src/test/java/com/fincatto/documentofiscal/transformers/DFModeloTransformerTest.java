@@ -16,6 +16,7 @@ public class DFModeloTransformerTest {
     	Assert.assertEquals(DFModelo.NFCE, new DFModeloTransformer().read("65"));
     	Assert.assertEquals(DFModelo.CTE, new DFModeloTransformer().read("57"));
     	Assert.assertEquals(DFModelo.CTeOS, new DFModeloTransformer().read("67"));
+		Assert.assertEquals(DFModelo.NF3E, new DFModeloTransformer().read("66"));
     }
     
     @Test
@@ -25,7 +26,7 @@ public class DFModeloTransformerTest {
     	Assert.assertEquals("55", new DFModeloTransformer().write(DFModelo.NFE));
     	Assert.assertEquals("65", new DFModeloTransformer().write(DFModelo.NFCE));
     	Assert.assertEquals("57", new DFModeloTransformer().write(DFModelo.CTE));
-    	Assert.assertEquals("67", new DFModeloTransformer().write(DFModelo.CTeOS));
+    	Assert.assertEquals("66", new DFModeloTransformer().write(DFModelo.NF3E));
     }
 
 }

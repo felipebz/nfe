@@ -15,6 +15,16 @@ public enum NF3eAutorizador100 {
         }
 
         @Override
+        public String getConsultaProtocolo(DFAmbiente ambiente) {
+            return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://homologacao.nf3e.fazenda.pr.gov.br/nf3e/NF3eConsulta" : "https://nf3e.fazenda.pr.gov.br/nf3e/NF3eConsulta";
+        }
+
+        @Override
+        public String getRecepcaoEvento(DFAmbiente ambiente) {
+            return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://homologacao.nf3e.fazenda.pr.gov.br/nf3e/NF3eRecepcaoEvento" : "https://nf3e.fazenda.pr.gov.br/nf3e/NF3eRecepcaoEvento";
+        }
+
+        @Override
         public DFUnidadeFederativa[] getUFs() {
             return new DFUnidadeFederativa[]{DFUnidadeFederativa.PR};
         }
@@ -24,6 +34,16 @@ public enum NF3eAutorizador100 {
         @Override
         public String getStatusServico(final DFAmbiente ambiente) {
             return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://nf3e-homologacao.svrs.rs.gov.br/ws/nf3eStatusServico/nf3eStatusServico.asmx" : "https://nf3e.svrs.rs.gov.br/ws/nf3eStatusServico/nf3eStatusServico.asmx";
+        }
+
+        @Override
+        public String getConsultaProtocolo(DFAmbiente ambiente) {
+            return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://nf3e-homologacao.svrs.rs.gov.br/ws/nf3eConsulta/nf3eConsulta.asmx" : "https://nf3e.svrs.rs.gov.br/ws/nf3eConsulta/nf3eConsulta.asmx";
+        }
+
+        @Override
+        public String getRecepcaoEvento(DFAmbiente ambiente) {
+            return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://nf3e-homologacao.svrs.rs.gov.br/ws/nf3eRecepcaoEvento/nf3eRecepcaoEvento.asmx" : "https://nf3e.svrs.rs.gov.br/ws/nf3eRecepcaoEvento/nf3eRecepcaoEvento.asmx";
         }
 
         @Override
@@ -47,7 +67,7 @@ public enum NF3eAutorizador100 {
 
     public abstract String getStatusServico(final DFAmbiente ambiente);
 
-    public abstract String getNf3eConsultaProtocolo(final DFAmbiente ambiente);
+    public abstract String getConsultaProtocolo(final DFAmbiente ambiente);
 
     public abstract String getRecepcaoEvento(final DFAmbiente ambiente);
     

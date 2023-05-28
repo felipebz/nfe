@@ -3,6 +3,7 @@ package com.fincatto.documentofiscal.nf3e100.webservices;
 import com.fincatto.documentofiscal.DFUnidadeFederativa;
 import com.fincatto.documentofiscal.nf3e.NF3eConfig;
 import com.fincatto.documentofiscal.nf3e100.classes.consultastatusservico.NF3eConsStatServRet;
+import com.fincatto.documentofiscal.nf3e100.classes.nota.consulta.NF3eNotaConsultaRetorno;
 import com.fincatto.documentofiscal.utils.DFSocketFactory;
 import org.apache.commons.httpclient.protocol.Protocol;
 
@@ -15,11 +16,24 @@ import java.security.cert.CertificateException;
 
 public class WSFacade {
 
+    private final WSNotaConsulta wsNotaConsulta;
     private final WSStatusConsulta wsStatusConsulta;
 
     public WSFacade(final NF3eConfig config) throws IOException, KeyManagementException, UnrecoverableKeyException, KeyStoreException, NoSuchAlgorithmException, CertificateException {
         Protocol.registerProtocol("https", new Protocol("https", new DFSocketFactory(config), 443));
+        this.wsNotaConsulta = new WSNotaConsulta(config);
         this.wsStatusConsulta = new WSStatusConsulta(config);
+    }
+
+    /**
+     * Faz a consulta da nota.
+     *
+     * @param chaveDeAcesso chave de acesso da nota
+     * @return dados da consulta da nota retornado pelo webservice
+     * @throws Exception caso nao consiga gerar o xml ou problema de conexao com o sefaz
+     */
+    public NF3eNotaConsultaRetorno consultaNota(final String chaveDeAcesso) throws Exception {
+        return this.wsNotaConsulta.consultaNota(chaveDeAcesso);
     }
 
     /**

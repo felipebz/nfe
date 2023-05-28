@@ -14,6 +14,7 @@ public class DFModeloTest {
 		Assert.assertEquals("57", DFModelo.CTE.getCodigo());
 		Assert.assertEquals("58", DFModelo.MDFE.getCodigo());
 		Assert.assertEquals("67", DFModelo.CTeOS.getCodigo());
+        Assert.assertEquals("66", DFModelo.NF3E.getCodigo());
 	}
 	
     @Test
@@ -25,6 +26,7 @@ public class DFModeloTest {
         Assert.assertEquals("57 - CT-e", DFModelo.CTE.toString());
         Assert.assertEquals("58 - MDF-e", DFModelo.MDFE.toString());
         Assert.assertEquals("67 - CT-e OS", DFModelo.CTeOS.toString());
+        Assert.assertEquals("66 - NF3e", DFModelo.NF3E.toString());
     }
 
     @Test
@@ -36,5 +38,6 @@ public class DFModeloTest {
         Assert.assertEquals(DFModelo.CTE, DFModelo.valueOfCodigo("57"));
         Assert.assertEquals(DFModelo.MDFE, DFModelo.valueOfCodigo("58"));
         Assert.assertEquals(DFModelo.CTeOS, DFModelo.valueOfCodigo("67"));
+        Assert.assertEquals(DFModelo.NF3E, DFModelo.valueOfCodigo("66"));
     }
 }

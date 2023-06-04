@@ -528,6 +528,12 @@ public abstract class DFStringValidador {
         }
     }
 
+    public static void exatamente48(final String string, final String info) {
+        if (string != null) {
+            DFStringValidador.validaTamanhoExato(string, 48, info);
+        }
+    }
+
     public static void exatamente7N(final String string, final String info) {
         if (string != null) {
             DFStringValidador.apenasNumerico(string, info);
@@ -539,6 +545,13 @@ public abstract class DFStringValidador {
         if (string != null) {
             DFStringValidador.apenasNumerico(string, info);
             DFStringValidador.exatamente44(string, info);
+        }
+    }
+
+    public static void exatamente48N(final String string, final String info) {
+        if (string != null) {
+            DFStringValidador.apenasNumerico(string, info);
+            DFStringValidador.exatamente48(string, info);
         }
     }
 

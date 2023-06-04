@@ -8,6 +8,9 @@ import com.fincatto.documentofiscal.cte200.classes.*;
 import com.fincatto.documentofiscal.cte200.transformers.*;
 import com.fincatto.documentofiscal.mdfe3.classes.def.*;
 import com.fincatto.documentofiscal.mdfe3.transformers.*;
+import com.fincatto.documentofiscal.nf3e100.classes.NF3eTipoEmissao;
+import com.fincatto.documentofiscal.nf3e100.classes.nota.*;
+import com.fincatto.documentofiscal.nf3e100.transformers.*;
 import com.fincatto.documentofiscal.nfe.NFTipoEmissao;
 import com.fincatto.documentofiscal.nfe.transformers.NFTipoEmissaoTransformer;
 import com.fincatto.documentofiscal.nfe310.classes.*;
@@ -200,5 +203,37 @@ public class DFRegistryMatcher extends RegistryMatcher {
         super.bind(MDFTipoUnidadeTransporte.class, new MDFTipoUnidadeTransporteTransformer());
         super.bind(MDFUnidadeMedidaPesoBrutoCarga.class, new MDFUnidadeMedidaPesoBrutoCargaTransformer());
         super.bind(MDFTipoResponsavelSeguro.class, new MDFTipoResponsavelSeguroTransformer());
+
+        // NF3e
+        super.bind(NF3eBandeira.class, new NF3eBandeiraTransformer());
+        super.bind(NF3eClasseConsumo.class, new NF3eClasseConsumoTransformer());
+        super.bind(NF3eFinalidade.class, new NF3eFinalidadeTransformer());
+        super.bind(NF3eFonteEnergia.class, new NF3eFonteEnergiaTransformer());
+        super.bind(NF3eGrandezaMedida.class, new NF3eGrandezaMedidaTransformer());
+        super.bind(NF3eGrupoTensao.class, new NF3eGrupoTensaoTransformer());
+        super.bind(NF3eIndicadorIE.class, new NF3eIndicadorIETransformer());
+        super.bind(NF3eIndicadorOrigemQuantidade.class, new NF3eIndicadorOrigemQuantidadeTransformer());
+        super.bind(NF3eModalidadeTarifa.class, new NF3eModalidadeTarifaTransformer());
+        super.bind(NF3eMotivoAjuste.class, new NF3eMotivoAjusteTransformer());
+        super.bind(NF3eMotivoDiferencaBandeira.class, new NF3eMotivoDiferencaBandeiraTransformer());
+        super.bind(NF3eMotivoDiferencaTarifa.class, new NF3eMotivoDiferencaTarifaTransformer());
+        super.bind(NF3eMotivoNaoLeitura.class, new NF3eMotivoNaoLeituraTransformer());
+        super.bind(NF3eMotivoSubstituicao.class, new NF3eMotivoSubstituicaoTransformer());
+        super.bind(NF3eNotaInfoImpostoTributacaoCOFINS.class, new NF3eNotaInfoImpostoTributacaoCOFINSTransformer());
+        super.bind(NF3eNotaInfoImpostoTributacaoICMS.class, new NF3eNotaInfoImpostoTributacaoICMSTransformer());
+        super.bind(NF3eNotaInfoImpostoTributacaoPIS.class, new NF3eNotaInfoImpostoTributacaoPISTransformer());
+        super.bind(NF3eNotaInfoSCEETipoParticipacao.class, new NF3eNotaInfoSCEETipoParticipacaoTransformer());
+        super.bind(NF3eSubclasseConsumo.class, new NF3eSubclasseConsumoTransformer());
+        super.bind(NF3eTipoAcessante.class, new NF3eTipoAcessanteTransformer());
+        super.bind(NF3eTipoAjuste.class, new NF3eTipoAjusteTransformer());
+        super.bind(NF3eTipoAtoANELL.class, new NF3eTipoAtoANELLTransformer());
+        super.bind(NF3eTipoEmissao.class, new NF3eTipoEmissaoTransformer());
+        super.bind(NF3eTipoFase.class, new NF3eTipoFaseTransformer());
+        super.bind(NF3eTipoGrandeza.class, new NF3eTipoGrandezaTransformer());
+        super.bind(NF3eTipoPostoTarifarioCompleto.class, new NF3eTipoPostoTarifarioCompletoTransformer());
+        super.bind(NF3eTipoPostoTarifario.class, new NF3eTipoPostoTarifarioTransformer());
+        super.bind(NF3eTipoProcesso.class, new NF3eTipoProcessoTransformer());
+        super.bind(NF3eTipoTarifa.class, new NF3eTipoTarifaTransformer());
+        super.bind(NF3eUnidadeMedida.class, new NF3eUnidadeMedidaTransformer());
     }
 }

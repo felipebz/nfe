@@ -4,7 +4,7 @@ import com.fincatto.documentofiscal.DFAmbiente;
 import com.fincatto.documentofiscal.DFBase;
 import com.fincatto.documentofiscal.DFUnidadeFederativa;
 import com.fincatto.documentofiscal.nf3e.NF3eConfig;
-import com.fincatto.documentofiscal.nf3e100.classes.NF3eProtocolo;
+import com.fincatto.documentofiscal.nf3e100.classes.envio.NF3eProtocolo;
 import org.simpleframework.xml.*;
 
 import java.util.List;

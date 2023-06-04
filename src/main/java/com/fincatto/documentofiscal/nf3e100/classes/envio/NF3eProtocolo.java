@@ -1,4 +1,4 @@
-package com.fincatto.documentofiscal.nf3e100.classes;
+package com.fincatto.documentofiscal.nf3e100.classes.envio;
 
 import com.fincatto.documentofiscal.DFBase;
 import com.fincatto.documentofiscal.nf3e.NF3eConfig;

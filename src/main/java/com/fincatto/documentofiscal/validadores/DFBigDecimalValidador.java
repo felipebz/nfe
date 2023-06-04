@@ -16,6 +16,10 @@ public abstract class DFBigDecimalValidador {
         return DFBigDecimalValidador.parse(valor, "0.000", 12, 3, info);
     }
 
+    public static String tamanho11Com4CasasDecimais(final BigDecimal valor, final String info) {
+        return DFBigDecimalValidador.parse(valor, "0.000", 12, 4, info);
+    }
+
     public static String tamanho13Com2CasasDecimais(final BigDecimal valor, final String info) {
         return DFBigDecimalValidador.parse(valor, "0.00", 13, 2, info);
     }
@@ -32,6 +36,10 @@ public abstract class DFBigDecimalValidador {
         return DFBigDecimalValidador.parse(valor, "0.0000", 16, 4, info);
     }
 
+    public static String tamanho11ComAte4CasasDecimais(final BigDecimal valor, final String info) {
+        return DFBigDecimalValidador.parse(valor, "0.##########", 12, 4, info);
+    }
+
     public static String tamanho21ComAte10CasasDecimais(final BigDecimal valor, final String info) {
         return DFBigDecimalValidador.parse(valor, "0.##########", 22, 10, info);
     }
@@ -42,6 +50,14 @@ public abstract class DFBigDecimalValidador {
 
     public static String tamanho15comAte6CasasDecimais(final BigDecimal valor, final String info) {
         return DFBigDecimalValidador.parse(valor, "0.######", 16, 6, info);
+    }
+
+    public static String tamanho15comAte8CasasDecimais(final BigDecimal valor, final String info) {
+        return DFBigDecimalValidador.parse(valor, "0.########", 16, 8, info);
+    }
+
+    public static String tamanho15comAte10CasasDecimais(final BigDecimal valor, final String info) {
+        return DFBigDecimalValidador.parse(valor, "0.##########", 16, 10, info);
     }
 
     public static String tamanho5Com2CasasDecimais(final BigDecimal valor, final String info) {
@@ -66,6 +82,14 @@ public abstract class DFBigDecimalValidador {
 
     public static String tamanho4Com2CasasDecimais(final BigDecimal valor, final String info) {
         return DFBigDecimalValidador.parse(valor, "0.00", 5, 2, info);
+    }
+
+    public static String tamanho8Com3CasasDecimais(final BigDecimal valor, final String info) {
+        return DFBigDecimalValidador.parse(valor, "0.000", 9, 3, info);
+    }
+
+    public static String tamanho17Com8CasasDecimais(final BigDecimal valor, final String info) {
+        return DFBigDecimalValidador.parse(valor, "0.00000000", 18, 8, info);
     }
 
     public static String validaTamanho(BigDecimal valor, final String info, Integer tamanho, Integer posicaoPontoFlutuante, Boolean pontoFlutuanteExato) {

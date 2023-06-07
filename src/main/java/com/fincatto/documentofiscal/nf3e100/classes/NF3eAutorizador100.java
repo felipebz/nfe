@@ -8,6 +8,33 @@ import java.util.Arrays;
 
 public enum NF3eAutorizador100 {
 
+    MS {
+        @Override
+        public String getStatusServico(final DFAmbiente ambiente) {
+            return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://hom.nf3e.sefaz.ms.gov.br/ws/NF3eStatusServico" : "https://nf3e.sefaz.ms.gov.br/ws/NF3eStatusServico";
+        }
+
+        @Override
+        public String getConsultaProtocolo(DFAmbiente ambiente) {
+            return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://hom.nf3e.sefaz.ms.gov.br/ws/NF3eConsulta" : "https://nf3e.sefaz.ms.gov.br/ws/NF3eConsulta";
+        }
+
+        @Override
+        public String getRecepcaoEvento(DFAmbiente ambiente) {
+            return DFAmbiente.HOMOLOGACAO.equals(ambiente) ? "https://hom.nf3e.sefaz.ms.gov.br/ws/NF3eRecepcaoEvento" : "https://nf3e.sefaz.ms.gov.br/ws/NF3eRecepcaoEvento";
+        }
+
+        @Override
+        public DFUnidadeFederativa[] getUFs() {
+            return new DFUnidadeFederativa[]{DFUnidadeFederativa.MS};
+        }
+
+        @Override
+        public String getPrefixoSoapAction() {
+            return "nf3e";
+        }
+    },
+
     PR {
         @Override
         public String getStatusServico(final DFAmbiente ambiente) {

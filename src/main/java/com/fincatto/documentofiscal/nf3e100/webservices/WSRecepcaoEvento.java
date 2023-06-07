@@ -37,7 +37,8 @@ abstract class WSRecepcaoEvento implements DFLog {
             throw new IllegalArgumentException("Nao foi possivel encontrar URL para RecepcaoEvento " + ctChaveParser.getModelo().name() + ", autorizador " + autorizador.name());
         }
 
-        NF3ERecepcaoEventoStub.Nf3EResultMsg cteRecepcaoEventoResult = new NF3ERecepcaoEventoStub(urlWebService, config).nF3ERecepcaoEvento(dados);
+        NF3ERecepcaoEventoStub.Nf3EResultMsg cteRecepcaoEventoResult = new NF3ERecepcaoEventoStub(urlWebService, config, autorizador.getPrefixoSoapAction())
+                .nf3ERecepcaoEvento(dados);
         final OMElement omElementResult = cteRecepcaoEventoResult.getExtraElement();
         this.getLogger().debug(omElementResult.toString());
         return omElementResult;

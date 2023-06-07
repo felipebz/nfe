@@ -22,14 +22,15 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
     private java.util.HashMap faultMessageMap = new java.util.HashMap();
     private javax.xml.namespace.QName[] opNameArray = null;
     private final DFConfig config;
+    private final String prefixoSoapAction;
 
     /**
      *Constructor that takes in a configContext
      */
     public NF3ERecepcaoEventoStub(
         org.apache.axis2.context.ConfigurationContext configurationContext,
-        java.lang.String targetEndpoint, DFConfig config) throws org.apache.axis2.AxisFault {
-        this(configurationContext, targetEndpoint, false, config);
+        String targetEndpoint, DFConfig config, String prefixoSoapAction) throws org.apache.axis2.AxisFault {
+        this(configurationContext, targetEndpoint, false, config, prefixoSoapAction);
     }
 
     /**
@@ -37,7 +38,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
      */
     public NF3ERecepcaoEventoStub(
         org.apache.axis2.context.ConfigurationContext configurationContext,
-        java.lang.String targetEndpoint, boolean useSeparateListener, DFConfig config)
+        String targetEndpoint, boolean useSeparateListener, DFConfig config, String prefixoSoapAction)
         throws org.apache.axis2.AxisFault {
         //To populate AxisService
         populateAxisService();
@@ -55,17 +56,18 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         _serviceClient.getOptions()
                       .setSoapVersionURI(org.apache.axiom.soap.SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
         this.config = config;
+        this.prefixoSoapAction = prefixoSoapAction;
     }
 
     /**
      * Constructor taking the target endpoint
      */
-    public NF3ERecepcaoEventoStub(java.lang.String targetEndpoint, DFConfig config)
+    public NF3ERecepcaoEventoStub(String targetEndpoint, DFConfig config, String prefixoSoapAction)
         throws org.apache.axis2.AxisFault {
-        this(null, targetEndpoint, config);
+        this(null, targetEndpoint, config, prefixoSoapAction);
     }
 
-    private static synchronized java.lang.String getUniqueSuffix() {
+    private static synchronized String getUniqueSuffix() {
         // reset the counter if it is greater than 99999
         if (counter > 99999) {
             counter = 0;
@@ -73,7 +75,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
 
         counter = counter + 1;
 
-        return java.lang.Long.toString(java.lang.System.currentTimeMillis()) +
+        return Long.toString(System.currentTimeMillis()) +
         "_" + counter;
     }
 
@@ -92,7 +94,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
 
         __operation.setName(new javax.xml.namespace.QName(
                 "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento",
-                "nF3ERecepcaoEvento"));
+                "nf3ERecepcaoEvento"));
         _service.addOperation(__operation);
 
         _operations[0] = __operation;
@@ -105,18 +107,18 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
     /**
      * Auto generated method signature
      *
-     * @see com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEvento#nF3ERecepcaoEvento
+     * @see com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEvento#nf3ERecepcaoEvento
      * @param nf3EDadosMsg
      */
-    public com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EResultMsg nF3ERecepcaoEvento(
-        com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EDadosMsg nf3EDadosMsg)
+    public Nf3EResultMsg nf3ERecepcaoEvento(
+        Nf3EDadosMsg nf3EDadosMsg)
         throws java.rmi.RemoteException {
         org.apache.axis2.context.MessageContext _messageContext = null;
 
         try {
             org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
             _operationClient.getOptions()
-                            .setAction("http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento/NF3eRecepcaoEvento");
+                            .setAction("http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento/nf3eRecepcaoEvento");
             _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
             addPropertyToOperationClient(_operationClient,
@@ -135,10 +137,10 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
                     optimizeContent(
                         new javax.xml.namespace.QName(
                             "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento",
-                            "nF3ERecepcaoEvento")),
+                            "nf3ERecepcaoEvento")),
                     new javax.xml.namespace.QName(
                         "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento",
-                        "nF3ERecepcaoEvento"));
+                        "nf3ERecepcaoEvento"));
 
             //adding SOAP soap_headers
             _serviceClient.addHeadersToEnvelope(env);
@@ -154,54 +156,54 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
             org.apache.axis2.context.MessageContext _returnMessageContext = _operationClient.getMessageContext(org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE);
             org.apache.axiom.soap.SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-            java.lang.Object object = fromOM(_returnEnv.getBody()
+            Object object = fromOM(_returnEnv.getBody()
                                                        .getFirstElement(),
-                    com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EResultMsg.class,
+                    Nf3EResultMsg.class,
                     getEnvelopeNamespaces(_returnEnv));
 
-            return (com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EResultMsg) object;
+            return (Nf3EResultMsg) object;
         } catch (org.apache.axis2.AxisFault f) {
             org.apache.axiom.om.OMElement faultElt = f.getDetail();
 
             if (faultElt != null) {
                 if (faultExceptionNameMap.containsKey(
                             new org.apache.axis2.client.FaultMapKey(
-                                faultElt.getQName(), "NF3eRecepcaoEvento"))) {
+                                faultElt.getQName(), "nf3eRecepcaoEvento"))) {
                     //make the fault by reflection
                     try {
-                        java.lang.String exceptionClassName = (java.lang.String) faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(
-                                    faultElt.getQName(), "NF3eRecepcaoEvento"));
-                        java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
-                        java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(java.lang.String.class);
-                        java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
+                        String exceptionClassName = (String) faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(
+                                    faultElt.getQName(), "nf3eRecepcaoEvento"));
+                        Class exceptionClass = Class.forName(exceptionClassName);
+                        java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
+                        Exception ex = (Exception) constructor.newInstance(f.getMessage());
 
                         //message class
-                        java.lang.String messageClassName = (java.lang.String) faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(
-                                    faultElt.getQName(), "NF3eRecepcaoEvento"));
-                        java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
-                        java.lang.Object messageObject = fromOM(faultElt,
+                        String messageClassName = (String) faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(
+                                    faultElt.getQName(), "nf3eRecepcaoEvento"));
+                        Class messageClass = Class.forName(messageClassName);
+                        Object messageObject = fromOM(faultElt,
                                 messageClass, null);
                         java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
-                                new java.lang.Class[] { messageClass });
-                        m.invoke(ex, new java.lang.Object[] { messageObject });
+                                new Class[] { messageClass });
+                        m.invoke(ex, new Object[] { messageObject });
 
                         throw new java.rmi.RemoteException(ex.getMessage(), ex);
-                    } catch (java.lang.ClassCastException e) {
+                    } catch (ClassCastException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    } catch (java.lang.ClassNotFoundException e) {
+                    } catch (ClassNotFoundException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    } catch (java.lang.NoSuchMethodException e) {
+                    } catch (NoSuchMethodException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
                     } catch (java.lang.reflect.InvocationTargetException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    } catch (java.lang.IllegalAccessException e) {
+                    } catch (IllegalAccessException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    } catch (java.lang.InstantiationException e) {
+                    } catch (InstantiationException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
                     }
@@ -250,10 +252,10 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
     }
 
     private org.apache.axiom.om.OMElement toOM(
-        com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EDadosMsg param,
+        Nf3EDadosMsg param,
         boolean optimizeContent) throws org.apache.axis2.AxisFault {
         try {
-            return param.getOMElement(com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EDadosMsg.MY_QNAME,
+            return param.getOMElement(Nf3EDadosMsg.MY_QNAME,
                 org.apache.axiom.om.OMAbstractFactory.getOMFactory());
         } catch (org.apache.axis2.databinding.ADBException e) {
             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -261,10 +263,10 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
     }
 
     private org.apache.axiom.om.OMElement toOM(
-        com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EResultMsg param,
+        Nf3EResultMsg param,
         boolean optimizeContent) throws org.apache.axis2.AxisFault {
         try {
-            return param.getOMElement(com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EResultMsg.MY_QNAME,
+            return param.getOMElement(Nf3EResultMsg.MY_QNAME,
                 org.apache.axiom.om.OMAbstractFactory.getOMFactory());
         } catch (org.apache.axis2.databinding.ADBException e) {
             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -273,14 +275,14 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
 
     private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
         org.apache.axiom.soap.SOAPFactory factory,
-        com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EDadosMsg param,
+        Nf3EDadosMsg param,
         boolean optimizeContent, javax.xml.namespace.QName methodQName)
         throws org.apache.axis2.AxisFault {
         try {
             org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
             emptyEnvelope.getBody()
                          .addChild(param.getOMElement(
-                    com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EDadosMsg.MY_QNAME,
+                    Nf3EDadosMsg.MY_QNAME,
                     factory));
 
             return emptyEnvelope;
@@ -299,27 +301,26 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         return factory.getDefaultEnvelope();
     }
 
-    private java.lang.Object fromOM(org.apache.axiom.om.OMElement param,
-        java.lang.Class type, java.util.Map extraNamespaces)
+    private Object fromOM(org.apache.axiom.om.OMElement param,
+        Class type, java.util.Map extraNamespaces)
         throws org.apache.axis2.AxisFault {
         try {
-            if (com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EDadosMsg.class.equals(
+            if (Nf3EDadosMsg.class.equals(
                         type)) {
-                return com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EDadosMsg.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                return Nf3EDadosMsg.Factory.parse(param.getXMLStreamReaderWithoutCaching());
             }
 
-            if (com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EResultMsg.class.equals(
+            if (Nf3EResultMsg.class.equals(
                         type)) {
-                return com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3ERecepcaoEventoStub.Nf3EResultMsg.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                return Nf3EResultMsg.Factory.parse(param.getXMLStreamReaderWithoutCaching());
             }
-        } catch (java.lang.Exception e) {
+        } catch (Exception e) {
             throw org.apache.axis2.AxisFault.makeFault(e);
         }
 
         return null;
     }
 
-    //http://10.15.208.7:8080/nf3e/NF3eRecepcaoEvento
     public static class Nf3EResultMsg implements org.apache.axis2.databinding.ADBBean {
         public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName("http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento",
                 "nf3eResultMsg", "ns1");
@@ -372,8 +373,8 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
             javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
-            java.lang.String prefix = null;
-            java.lang.String namespace = null;
+            String prefix = null;
+            String namespace = null;
 
             prefix = parentQName.getPrefix();
             namespace = parentQName.getNamespaceURI();
@@ -381,7 +382,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
                 xmlWriter);
 
             if (serializeType) {
-                java.lang.String namespacePrefix = registerPrefix(xmlWriter,
+                String namespacePrefix = registerPrefix(xmlWriter,
                         "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento");
 
                 if ((namespacePrefix != null) &&
@@ -406,8 +407,8 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
             xmlWriter.writeEndElement();
         }
 
-        private static java.lang.String generatePrefix(
-            java.lang.String namespace) {
+        private static String generatePrefix(
+            String namespace) {
             if (namespace.equals(
                         "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento")) {
                 return "ns1";
@@ -419,11 +420,11 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Utility method to write an element start tag.
          */
-        private void writeStartElement(java.lang.String prefix,
-            java.lang.String namespace, java.lang.String localPart,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+        private void writeStartElement(String prefix,
+                                       String namespace, String localPart,
+                                       javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
-            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
+            String writerPrefix = xmlWriter.getPrefix(namespace);
 
             if (writerPrefix != null) {
                 xmlWriter.writeStartElement(namespace, localPart);
@@ -443,10 +444,10 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Util method to write an attribute with the ns prefix
          */
-        private void writeAttribute(java.lang.String prefix,
-            java.lang.String namespace, java.lang.String attName,
-            java.lang.String attValue,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+        private void writeAttribute(String prefix,
+                                    String namespace, String attName,
+                                    String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
@@ -459,9 +460,9 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Util method to write an attribute without the ns prefix
          */
-        private void writeAttribute(java.lang.String namespace,
-            java.lang.String attName, java.lang.String attValue,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+        private void writeAttribute(String namespace,
+                                    String attName, String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName, attValue);
@@ -474,18 +475,18 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Util method to write an attribute without the ns prefix
          */
-        private void writeQNameAttribute(java.lang.String namespace,
-            java.lang.String attName, javax.xml.namespace.QName qname,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+        private void writeQNameAttribute(String namespace,
+                                         String attName, javax.xml.namespace.QName qname,
+                                         javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
-            java.lang.String attributeNamespace = qname.getNamespaceURI();
-            java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+            String attributeNamespace = qname.getNamespaceURI();
+            String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
             if (attributePrefix == null) {
                 attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
             }
 
-            java.lang.String attributeValue;
+            String attributeValue;
 
             if (attributePrefix.trim().length() > 0) {
                 attributeValue = attributePrefix + ":" + qname.getLocalPart();
@@ -507,10 +508,10 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         private void writeQName(javax.xml.namespace.QName qname,
             javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
-            java.lang.String namespaceURI = qname.getNamespaceURI();
+            String namespaceURI = qname.getNamespaceURI();
 
             if (namespaceURI != null) {
-                java.lang.String prefix = xmlWriter.getPrefix(namespaceURI);
+                String prefix = xmlWriter.getPrefix(namespaceURI);
 
                 if (prefix == null) {
                     prefix = generatePrefix(namespaceURI);
@@ -539,9 +540,9 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
             if (qnames != null) {
                 // we have to store this data until last moment since it is not possible to write any
                 // namespace data after writing the charactor data
-                java.lang.StringBuffer stringToWrite = new java.lang.StringBuffer();
-                java.lang.String namespaceURI = null;
-                java.lang.String prefix = null;
+                StringBuffer stringToWrite = new StringBuffer();
+                String namespaceURI = null;
+                String prefix = null;
 
                 for (int i = 0; i < qnames.length; i++) {
                     if (i > 0) {
@@ -580,11 +581,11 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Register a namespace prefix
          */
-        private java.lang.String registerPrefix(
+        private String registerPrefix(
             javax.xml.stream.XMLStreamWriter xmlWriter,
-            java.lang.String namespace)
+            String namespace)
             throws javax.xml.stream.XMLStreamException {
-            java.lang.String prefix = xmlWriter.getPrefix(namespace);
+            String prefix = xmlWriter.getPrefix(namespace);
 
             if (prefix == null) {
                 prefix = generatePrefix(namespace);
@@ -592,7 +593,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
                 javax.xml.namespace.NamespaceContext nsContext = xmlWriter.getNamespaceContext();
 
                 while (true) {
-                    java.lang.String uri = nsContext.getNamespaceURI(prefix);
+                    String uri = nsContext.getNamespaceURI(prefix);
 
                     if ((uri == null) || (uri.length() == 0)) {
                         break;
@@ -643,13 +644,13 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
              */
             public static Nf3EResultMsg parse(
                 javax.xml.stream.XMLStreamReader reader)
-                throws java.lang.Exception {
+                throws Exception {
                 Nf3EResultMsg object = new Nf3EResultMsg();
 
                 int event;
-                java.lang.String nillableValue = null;
-                java.lang.String prefix = "";
-                java.lang.String namespaceuri = "";
+                String nillableValue = null;
+                String prefix = "";
+                String namespaceuri = "";
 
                 try {
                     while (!reader.isStartElement() && !reader.isEndElement())
@@ -670,11 +671,11 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
                     if (reader.getAttributeValue(
                                 "http://www.w3.org/2001/XMLSchema-instance",
                                 "type") != null) {
-                        java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
+                        String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
                                 "type");
 
                         if (fullTypeName != null) {
-                            java.lang.String nsPrefix = null;
+                            String nsPrefix = null;
 
                             if (fullTypeName.indexOf(":") > -1) {
                                 nsPrefix = fullTypeName.substring(0,
@@ -683,12 +684,12 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
 
                             nsPrefix = (nsPrefix == null) ? "" : nsPrefix;
 
-                            java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(
+                            String type = fullTypeName.substring(fullTypeName.indexOf(
                                         ":") + 1);
 
                             if (!"nf3eResultMsg".equals(type)) {
                                 //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext()
+                                String nsUri = reader.getNamespaceContext()
                                                                .getNamespaceURI(nsPrefix);
 
                                 return (Nf3EResultMsg) ExtensionMapper.getTypeObject(nsUri,
@@ -735,7 +736,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
                             "Unexpected subelement " + reader.getName());
                     }
                 } catch (javax.xml.stream.XMLStreamException e) {
-                    throw new java.lang.Exception(e);
+                    throw new Exception(e);
                 }
 
                 return object;
@@ -745,7 +746,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
 
     public static class Nf3EDadosMsg implements org.apache.axis2.databinding.ADBBean {
         public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName("http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento",
-                "nf3eDadosMsg", "ns1");
+                "nf3eDadosMsg", ""); // removido prefixo pois estava gerando o erro "Rejeicao: Uso de prefixo de namespace nao permitido" apenas no MS
 
         /**
          * field for ExtraElement
@@ -795,8 +796,8 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
             javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
             throws javax.xml.stream.XMLStreamException,
                 org.apache.axis2.databinding.ADBException {
-            java.lang.String prefix = null;
-            java.lang.String namespace = null;
+            String prefix = null;
+            String namespace = null;
 
             prefix = parentQName.getPrefix();
             namespace = parentQName.getNamespaceURI();
@@ -804,7 +805,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
                 xmlWriter);
 
             if (serializeType) {
-                java.lang.String namespacePrefix = registerPrefix(xmlWriter,
+                String namespacePrefix = registerPrefix(xmlWriter,
                         "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento");
 
                 if ((namespacePrefix != null) &&
@@ -829,8 +830,8 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
             xmlWriter.writeEndElement();
         }
 
-        private static java.lang.String generatePrefix(
-            java.lang.String namespace) {
+        private static String generatePrefix(
+            String namespace) {
             if (namespace.equals(
                         "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eRecepcaoEvento")) {
                 return "ns1";
@@ -842,11 +843,11 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Utility method to write an element start tag.
          */
-        private void writeStartElement(java.lang.String prefix,
-            java.lang.String namespace, java.lang.String localPart,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+        private void writeStartElement(String prefix,
+                                       String namespace, String localPart,
+                                       javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
-            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
+            String writerPrefix = xmlWriter.getPrefix(namespace);
 
             if (writerPrefix != null) {
                 xmlWriter.writeStartElement(namespace, localPart);
@@ -866,10 +867,10 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Util method to write an attribute with the ns prefix
          */
-        private void writeAttribute(java.lang.String prefix,
-            java.lang.String namespace, java.lang.String attName,
-            java.lang.String attValue,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+        private void writeAttribute(String prefix,
+                                    String namespace, String attName,
+                                    String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
@@ -882,9 +883,9 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Util method to write an attribute without the ns prefix
          */
-        private void writeAttribute(java.lang.String namespace,
-            java.lang.String attName, java.lang.String attValue,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+        private void writeAttribute(String namespace,
+                                    String attName, String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName, attValue);
@@ -897,18 +898,18 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Util method to write an attribute without the ns prefix
          */
-        private void writeQNameAttribute(java.lang.String namespace,
-            java.lang.String attName, javax.xml.namespace.QName qname,
-            javax.xml.stream.XMLStreamWriter xmlWriter)
+        private void writeQNameAttribute(String namespace,
+                                         String attName, javax.xml.namespace.QName qname,
+                                         javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
-            java.lang.String attributeNamespace = qname.getNamespaceURI();
-            java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+            String attributeNamespace = qname.getNamespaceURI();
+            String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
             if (attributePrefix == null) {
                 attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
             }
 
-            java.lang.String attributeValue;
+            String attributeValue;
 
             if (attributePrefix.trim().length() > 0) {
                 attributeValue = attributePrefix + ":" + qname.getLocalPart();
@@ -930,10 +931,10 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         private void writeQName(javax.xml.namespace.QName qname,
             javax.xml.stream.XMLStreamWriter xmlWriter)
             throws javax.xml.stream.XMLStreamException {
-            java.lang.String namespaceURI = qname.getNamespaceURI();
+            String namespaceURI = qname.getNamespaceURI();
 
             if (namespaceURI != null) {
-                java.lang.String prefix = xmlWriter.getPrefix(namespaceURI);
+                String prefix = xmlWriter.getPrefix(namespaceURI);
 
                 if (prefix == null) {
                     prefix = generatePrefix(namespaceURI);
@@ -962,9 +963,9 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
             if (qnames != null) {
                 // we have to store this data until last moment since it is not possible to write any
                 // namespace data after writing the charactor data
-                java.lang.StringBuffer stringToWrite = new java.lang.StringBuffer();
-                java.lang.String namespaceURI = null;
-                java.lang.String prefix = null;
+                StringBuffer stringToWrite = new StringBuffer();
+                String namespaceURI = null;
+                String prefix = null;
 
                 for (int i = 0; i < qnames.length; i++) {
                     if (i > 0) {
@@ -1003,11 +1004,11 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
         /**
          * Register a namespace prefix
          */
-        private java.lang.String registerPrefix(
+        private String registerPrefix(
             javax.xml.stream.XMLStreamWriter xmlWriter,
-            java.lang.String namespace)
+            String namespace)
             throws javax.xml.stream.XMLStreamException {
-            java.lang.String prefix = xmlWriter.getPrefix(namespace);
+            String prefix = xmlWriter.getPrefix(namespace);
 
             if (prefix == null) {
                 prefix = generatePrefix(namespace);
@@ -1015,7 +1016,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
                 javax.xml.namespace.NamespaceContext nsContext = xmlWriter.getNamespaceContext();
 
                 while (true) {
-                    java.lang.String uri = nsContext.getNamespaceURI(prefix);
+                    String uri = nsContext.getNamespaceURI(prefix);
 
                     if ((uri == null) || (uri.length() == 0)) {
                         break;
@@ -1066,13 +1067,13 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
              */
             public static Nf3EDadosMsg parse(
                 javax.xml.stream.XMLStreamReader reader)
-                throws java.lang.Exception {
+                throws Exception {
                 Nf3EDadosMsg object = new Nf3EDadosMsg();
 
                 int event;
-                java.lang.String nillableValue = null;
-                java.lang.String prefix = "";
-                java.lang.String namespaceuri = "";
+                String nillableValue = null;
+                String prefix = "";
+                String namespaceuri = "";
 
                 try {
                     while (!reader.isStartElement() && !reader.isEndElement())
@@ -1081,11 +1082,11 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
                     if (reader.getAttributeValue(
                                 "http://www.w3.org/2001/XMLSchema-instance",
                                 "type") != null) {
-                        java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
+                        String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
                                 "type");
 
                         if (fullTypeName != null) {
-                            java.lang.String nsPrefix = null;
+                            String nsPrefix = null;
 
                             if (fullTypeName.indexOf(":") > -1) {
                                 nsPrefix = fullTypeName.substring(0,
@@ -1094,12 +1095,12 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
 
                             nsPrefix = (nsPrefix == null) ? "" : nsPrefix;
 
-                            java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(
+                            String type = fullTypeName.substring(fullTypeName.indexOf(
                                         ":") + 1);
 
                             if (!"nf3eDadosMsg".equals(type)) {
                                 //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext()
+                                String nsUri = reader.getNamespaceContext()
                                                                .getNamespaceURI(nsPrefix);
 
                                 return (Nf3EDadosMsg) ExtensionMapper.getTypeObject(nsUri,
@@ -1146,7 +1147,7 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
                             "Unexpected subelement " + reader.getName());
                     }
                 } catch (javax.xml.stream.XMLStreamException e) {
-                    throw new java.lang.Exception(e);
+                    throw new Exception(e);
                 }
 
                 return object;
@@ -1155,9 +1156,9 @@ public class NF3ERecepcaoEventoStub extends org.apache.axis2.client.Stub {
     }
 
     public static class ExtensionMapper {
-        public static java.lang.Object getTypeObject(
-            java.lang.String namespaceURI, java.lang.String typeName,
-            javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception {
+        public static Object getTypeObject(
+            String namespaceURI, String typeName,
+            javax.xml.stream.XMLStreamReader reader) throws Exception {
             throw new org.apache.axis2.databinding.ADBException(
                 "Unsupported type " + namespaceURI + " " + typeName);
         }

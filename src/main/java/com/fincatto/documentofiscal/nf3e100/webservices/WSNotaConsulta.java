@@ -49,6 +49,6 @@ class WSNotaConsulta implements DFLog {
         if (endpoint == null) {
             throw new IllegalArgumentException("Nao foi possivel encontrar URL para ConsultaProtocolo, autorizador " + autorizador.name());
         }
-        return new NF3EConsultaStub(endpoint, config).nF3EConsultaNF(dados).getExtraElement();
+        return new NF3EConsultaStub(endpoint, config, autorizador.getPrefixoSoapAction()).nf3EConsultaNF(dados).getExtraElement();
     }
 }

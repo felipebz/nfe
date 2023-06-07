@@ -8,7 +8,6 @@ package com.fincatto.documentofiscal.nf3e100.webservices.gerado;
 
 import com.fincatto.documentofiscal.DFConfig;
 import com.fincatto.documentofiscal.utils.MessageContextFactory;
-import org.apache.axis2.context.ConfigurationContext;
 
 /*
  *  NF3EStatusServicoStub java implementation
@@ -23,22 +22,23 @@ public class NF3EStatusServicoStub extends org.apache.axis2.client.Stub {
     private java.util.HashMap faultMessageMap = new java.util.HashMap();
     private javax.xml.namespace.QName[] opNameArray = null;
     private final DFConfig config;
+    private final String prefixoSoapAction;
 
     /**
      *Constructor that takes in a configContext
      */
     public NF3EStatusServicoStub(
         org.apache.axis2.context.ConfigurationContext configurationContext,
-        String targetEndpoint, DFConfig config) throws org.apache.axis2.AxisFault {
-        this(configurationContext, targetEndpoint, false, config);
+        String targetEndpoint, DFConfig config, String prefixoSoapAction) throws org.apache.axis2.AxisFault {
+        this(configurationContext, targetEndpoint, false, config, prefixoSoapAction);
     }
 
     /**
      * Constructor that takes in a configContext  and useseperate listner
      */
     public NF3EStatusServicoStub(
-            ConfigurationContext configurationContext,
-            String targetEndpoint, boolean useSeparateListener, DFConfig config)
+        org.apache.axis2.context.ConfigurationContext configurationContext,
+        String targetEndpoint, boolean useSeparateListener, DFConfig config, String prefixoSoapAction)
         throws org.apache.axis2.AxisFault {
         //To populate AxisService
         populateAxisService();
@@ -56,14 +56,15 @@ public class NF3EStatusServicoStub extends org.apache.axis2.client.Stub {
         _serviceClient.getOptions()
                       .setSoapVersionURI(org.apache.axiom.soap.SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
         this.config = config;
+        this.prefixoSoapAction = prefixoSoapAction;
     }
 
     /**
      * Constructor taking the target endpoint
      */
-    public NF3EStatusServicoStub(String targetEndpoint, DFConfig config)
+    public NF3EStatusServicoStub(String targetEndpoint, DFConfig config, String prefixoSoapAction)
         throws org.apache.axis2.AxisFault {
-        this(null, targetEndpoint, config);
+        this(null, targetEndpoint, config, prefixoSoapAction);
     }
 
     private static synchronized String getUniqueSuffix() {
@@ -93,7 +94,7 @@ public class NF3EStatusServicoStub extends org.apache.axis2.client.Stub {
 
         __operation.setName(new javax.xml.namespace.QName(
                 "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eStatusServico",
-                "nF3EStatusServicoNF"));
+                "nf3EStatusServicoNF"));
         _service.addOperation(__operation);
 
         _operations[0] = __operation;
@@ -106,10 +107,10 @@ public class NF3EStatusServicoStub extends org.apache.axis2.client.Stub {
     /**
      * Auto generated method signature
      *
-     * @see com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3EStatusServico#nF3EStatusServicoNF
+     * @see com.fincatto.documentofiscal.nf3e100.webservices.gerado.NF3EStatusServico#nf3EStatusServicoNF
      * @param nf3EDadosMsg
      */
-    public Nf3EResultMsg nF3EStatusServicoNF(
+    public Nf3EResultMsg nf3EStatusServicoNF(
         Nf3EDadosMsg nf3EDadosMsg)
         throws java.rmi.RemoteException {
         org.apache.axis2.context.MessageContext _messageContext = null;
@@ -117,7 +118,7 @@ public class NF3EStatusServicoStub extends org.apache.axis2.client.Stub {
         try {
             org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
             _operationClient.getOptions()
-                            .setAction("http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eStatusServico/NF3eStatusServicoNF");
+                            .setAction("http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eStatusServico/nf3eStatusServicoNF");
             _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
             addPropertyToOperationClient(_operationClient,
@@ -136,10 +137,10 @@ public class NF3EStatusServicoStub extends org.apache.axis2.client.Stub {
                     optimizeContent(
                         new javax.xml.namespace.QName(
                             "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eStatusServico",
-                            "nF3EStatusServicoNF")),
+                            "nf3EStatusServicoNF")),
                     new javax.xml.namespace.QName(
                         "http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eStatusServico",
-                        "nF3EStatusServicoNF"));
+                        "nf3EStatusServicoNF"));
 
             //adding SOAP soap_headers
             _serviceClient.addHeadersToEnvelope(env);
@@ -167,18 +168,18 @@ public class NF3EStatusServicoStub extends org.apache.axis2.client.Stub {
             if (faultElt != null) {
                 if (faultExceptionNameMap.containsKey(
                             new org.apache.axis2.client.FaultMapKey(
-                                faultElt.getQName(), "NF3eStatusServicoNF"))) {
+                                faultElt.getQName(), "nf3eStatusServicoNF"))) {
                     //make the fault by reflection
                     try {
                         String exceptionClassName = (String) faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(
-                                    faultElt.getQName(), "NF3eStatusServicoNF"));
+                                    faultElt.getQName(), "nf3eStatusServicoNF"));
                         Class exceptionClass = Class.forName(exceptionClassName);
                         java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
                         Exception ex = (Exception) constructor.newInstance(f.getMessage());
 
                         //message class
                         String messageClassName = (String) faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(
-                                    faultElt.getQName(), "NF3eStatusServicoNF"));
+                                    faultElt.getQName(), "nf3eStatusServicoNF"));
                         Class messageClass = Class.forName(messageClassName);
                         Object messageObject = fromOM(faultElt,
                                 messageClass, null);
@@ -754,7 +755,7 @@ public class NF3EStatusServicoStub extends org.apache.axis2.client.Stub {
 
     public static class Nf3EDadosMsg implements org.apache.axis2.databinding.ADBBean {
         public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName("http://www.portalfiscal.inf.br/nf3e/wsdl/NF3eStatusServico",
-                "nf3eDadosMsg", "ns1");
+                "nf3eDadosMsg", ""); // removido prefixo pois estava gerando o erro "Rejeicao: Uso de prefixo de namespace nao permitido" apenas no MS
 
         /**
          * field for ExtraElement

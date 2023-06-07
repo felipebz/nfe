@@ -48,6 +48,6 @@ class WSStatusConsulta implements DFLog {
         if (endpoint == null) {
             throw new IllegalArgumentException("Nao foi possivel encontrar URL para StatusServico, autorizador " + autorizador.name() + ", UF " + unidadeFederativa.name());
         }
-        return new NF3EStatusServicoStub(endpoint, config).nF3EStatusServicoNF(dados).getExtraElement();
+        return new NF3EStatusServicoStub(endpoint, config, autorizador.getPrefixoSoapAction()).nf3EStatusServicoNF(dados).getExtraElement();
     }
 }

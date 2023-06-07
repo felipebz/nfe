@@ -28,6 +28,11 @@ public enum NF3eAutorizador100 {
         public DFUnidadeFederativa[] getUFs() {
             return new DFUnidadeFederativa[]{DFUnidadeFederativa.PR};
         }
+
+        @Override
+        public String getPrefixoSoapAction() {
+            return "NF3e";
+        }
     },
 
     SVRS {
@@ -63,6 +68,11 @@ public enum NF3eAutorizador100 {
                     DFUnidadeFederativa.SE,
                     DFUnidadeFederativa.TO};
         }
+
+        @Override
+        public String getPrefixoSoapAction() {
+            return "nf3e";
+        }
     };
 
     public abstract String getStatusServico(final DFAmbiente ambiente);
@@ -72,6 +82,8 @@ public enum NF3eAutorizador100 {
     public abstract String getRecepcaoEvento(final DFAmbiente ambiente);
     
     public abstract DFUnidadeFederativa[] getUFs();
+
+    public abstract String getPrefixoSoapAction();
     
     public static NF3eAutorizador100 valueOfCodigoUF(final DFUnidadeFederativa uf) {
         for (final NF3eAutorizador100 autorizador : NF3eAutorizador100.values()) {

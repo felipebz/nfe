@@ -41,6 +41,10 @@ public class NF3eProcessada extends DFBase {
     @Element(name = "protNF3e", required = false)
     private NF3eProtocolo protocolo;
 
+    // essa tag não está definida no XSD, mas a Energisa envia ela
+    @Element(name = "nf3eResultMsg", required = false)
+    private NF3eResultMsg resultMsg;
+
     public String getVersao() {
         return versao;
     }
@@ -82,6 +86,9 @@ public class NF3eProcessada extends DFBase {
     }
 
     public NF3eProtocolo getProtocolo() {
+        if (resultMsg != null){
+            return resultMsg.getRetorno().getProtocolo();
+        }
         return protocolo;
     }
 
